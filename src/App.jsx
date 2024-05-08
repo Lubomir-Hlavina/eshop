@@ -19,6 +19,7 @@ import { ErrorElement } from './components';
 // loaders
 import { loader as landingLoader } from './pages/Landing';
 import { loader as singleProductLoader } from './pages/SingleProduct';
+import { loader as productsLoader } from './pages/Products';
 // actions
 
 const router = createBrowserRouter([
@@ -30,15 +31,20 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Landing />,
-        loader: landingLoader,
         errorElement: <ErrorElement />,
+        loader: landingLoader,
       },
-      { path: 'products', element: <Products /> },
+      {
+        path: 'products',
+        element: <Products />,
+        errorElement: <ErrorElement />,
+        loader: productsLoader,
+      },
       {
         path: 'products/:id',
         element: <SingleProduct />,
-        loader: singleProductLoader,
         errorElement: <ErrorElement />,
+        loader: singleProductLoader,
       },
       { path: 'cart', element: <Cart /> },
       { path: 'about', element: <About /> },
